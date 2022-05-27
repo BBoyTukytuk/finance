@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    quoted
+{% endblock %}
+
+{% block main %}
+<!-- In flask we can show variables from the render_template by using {{ variable }}
+return render_template("quoted.html", name = stock["name"], price = stock["price"],
+symbol = stock["symbol"])
+
+-->
+    <h1>Quoted</h1>
+    <h3>Name: {{ name }} </h3>
+    <h3>Price: {{ price }} </h3>
+    <h3>Symbol: {{ symbol }} </h3>
+
+
+{% endblock %}

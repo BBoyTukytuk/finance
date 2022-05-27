@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    portfolio
+{% endblock %}
+
+{% block main %}
+<!-- In flask we can show variables from the render_template by using {{ variable }}
+return render_template("index.html", database = transaction_db, cash = acc_cash)
+It will show the symbol, shares and price from db
+In a table th is the table header and td will be the table data
+
+-->
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Symbol</th>
+        <th scope="col">Shares</th>
+        <th scope="col">Price</th>
+        <th scope="col">Total Cash</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for row in database %} <!-- Jinja forloop for row in database (what we get from python) we display below  -->
+        <tr>
+          <td> {{ row["symbol"] }}</td>
+          <td> {{ row["shares"] }}</td>
+          <td> {{ row["price"] }}</td>
+          <td></td>
+        </tr>
+       {% endfor %}
+    </tbody>
+    <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+     <!-- <th scope = "1"> Cash</th>-->
+          <th scope = "1">{{ cash }}</th>
+        </tr>
+    </tfoot>
+
+
+  </table>
+{% endblock %}

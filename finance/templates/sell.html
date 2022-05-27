@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<h1>Sell</h1>
+    <form action="/sell" method="post">
+        <div class="mb-3">
+            <select name="symbol" id=symbol>
+                {% for symbol in symbol_list %} <!-- Jinja forloop for symbol in symbols (what we get from python) we display below  -->
+                <option value="{{ symbol }}"> {{ symbol }} </option> <!-- We need both the value and the text for select html  -->
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="buy" name="shares" placeholder="shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}
